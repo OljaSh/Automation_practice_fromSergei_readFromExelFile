@@ -1,8 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Debug suite" verbose="1" >
-    <test name="Auth tests" >
+<suite name="Debug suite" verbose="1">
+    <parameter name="browser" value="firefox"/>
+
+    <test name="Auth tests">
         <classes>
-            <class name="uk.be2co.testcases.LoginPageTest"/>
+            <class name="uk.be2co.testcases.LoginPageTest">
+                <methods>
+                    <include name="printParams"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

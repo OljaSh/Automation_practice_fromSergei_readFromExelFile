@@ -6,30 +6,31 @@ import org.openqa.selenium.By;
 /**
  * Created by olja on 06/01/16.
  */
-public class LoginPage  extends BasePage{
+public class LoginPage extends BasePage {
 
-    private By inputUserName = By.id("username");
-    private By inputPassword = By.id("password");
-    private By buttonLogin = By.id("login_button");
-    private By errorMessageText = By.id("errorMsg");
+	private By inputUserName = By.id("username");
+	private By inputPassword = By.id("password");
+	private By buttonLogin = By.id("login_button");
+	private By errorMessageText = By.id("errorMsg");
 
-    public LoginPage setUserName(String userName){
-        setText(inputUserName, userName);
-        return this;
-    }
+	//@Step("Set username = {0}.")
+	public LoginPage setUserName(String userName) {
+		setText(inputUserName, userName);
+		return this;
+	}
 
-    public  LoginPage setPassword(String password){
-        setText(inputPassword, password);
-        return this;
-    }
+	public LoginPage setPassword(String password) {
+		setText(inputPassword, password);
+		return this;
+	}
 
-    public HomePage clickLoginButton(){
-        click(buttonLogin);
-        return new HomePage();
-    }
+	public HomePage clickLoginButton() {
+		click(buttonLogin);
+		return new HomePage();
+	}
 
-    public String getErrorMessage() {
-        return getText(errorMessageText);
-    }
+	public String getErrorMessage() {
+		return getText(errorMessageText);
+	}
 }
 
