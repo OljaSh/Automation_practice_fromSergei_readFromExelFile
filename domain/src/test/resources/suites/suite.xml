@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Debug suite" verbose="1" >
+    <test name="Auth tests" >
+        <classes>
+            <class name="uk.be2co.testcases.LoginPageTest"/>
+        </classes>
+    </test>
+</suite>
