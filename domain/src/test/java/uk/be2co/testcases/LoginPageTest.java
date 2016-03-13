@@ -11,26 +11,25 @@ import uk.be2co.pageobject.LoginPage;
 import uk.be2co.preset.URL;
 
 import static forall.utils.DataProviderUtils.GENERIC_DP;
-import static forall.utils.StringUtils.cutName;
 import static uk.be2co.preset.PageObjectSupplier.$;
 import static uk.be2co.preset.PageObjectSupplier.loadSiteUrl;
 
 public class LoginPageTest extends BaseTest {
 
-	@Test
+	/*@Test
 	public void printParams() {
-	}
+	}*/
 
 	@DataSource(fileName = Data.MAIN, workSheetName = "Users")
 	@Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
 	public void loginWithAValidUser(final String email, final String password, final String message) {
 		//System.out.println(email + ":" + password + " -> " + userName); // print var names
 		//System.out.println(randomAlphanumeric(100)); // random from apache utils
-		loadSiteUrl(URL.DEV)
+		loadSiteUrl(URL.QA)
 				.setUserName(email)
 				.setPassword(password)
 				.clickLoginButton();
-		Assert.assertEquals(cutName($(HomePage.class).getUserName()), message);
+		Assert.assertEquals($(HomePage.class).getUserName(), message);
 		//cutName не понимает
 	}
 
