@@ -8,33 +8,33 @@ import org.openqa.selenium.support.ui.Select;
 
 public class BasePage {
 
-    private WebDriver driver;
+	private WebDriver driver;
 
-    public BasePage(){
-        driver = BaseTest.getDriver();
-    }
+	public BasePage() {
+		driver = BaseTest.getDriver();
+	}
 
-    public WebElement findElement(By element){
-        return driver.findElement(element);
-    }
+	public WebElement findElement(By element) {
+		return driver.findElement(element);
+	}
 
-    public void setText(By element, String text){
-        findElement(element).sendKeys(text);
-    }
+	public void setText(By element, String text) {
+		findElement(element).sendKeys(text);
+	}
 
-    public void click(By element){
-        findElement(element).click();
-    }
+	public void click(By element) {
+		findElement(element).click();
+	}
 
-    public String getText(By element){
-        return findElement(element).getText();
-    }
+	public String getText(By element) {
+		return findElement(element).getText();
+	}
 
-    public void setRadioSelected(By element){
-        findElement(element).click();
-    }
+	public void setRadioSelected(By element) {
+		findElement(element).click();
+	}
 
-    public void selectFromDropDownList(By element, String text){
-        new Select(findElement(element)).selectByVisibleText(text);
-    }
+	public void selectFromDropDownList(By element, String text) {
+		new Select(findElement(element)).selectByVisibleText(text);
+	}
 }

@@ -11,53 +11,57 @@ import uk.be2co.pageobject.LoginPage;
 import uk.be2co.preset.URL;
 
 import static forall.utils.DataProviderUtils.GENERIC_DP;
+import static forall.utils.StringUtils.cutName;
 import static uk.be2co.preset.PageObjectSupplier.$;
 import static uk.be2co.preset.PageObjectSupplier.loadSiteUrl;
 
 public class LoginPageTest extends BaseTest {
 
+	@Test
+	public void printParams() {
+	}
 
-    @DataSource(fileName = Data.MAIN, workSheetName = "Users")
-    @Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
-    public void loginWithAValidUser(final String email, final String password, final String message) {
-        //System.out.println(email + ":" + password + " -> " + userName); // print var names
-        //System.out.println(randomAlphanumeric(100)); // random from apache utils
-        loadSiteUrl(URL.DEV)
-                .setUserName(email)
-                .setPassword(password)
-                .clickLoginButton();
-        Assert.assertEquals($(HomePage.class).getUserName(), message);
-        //cutName не понимает
-    }
+	@DataSource(fileName = Data.MAIN, workSheetName = "Users")
+	@Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
+	public void loginWithAValidUser(final String email, final String password, final String message) {
+		//System.out.println(email + ":" + password + " -> " + userName); // print var names
+		//System.out.println(randomAlphanumeric(100)); // random from apache utils
+		loadSiteUrl(URL.DEV)
+				.setUserName(email)
+				.setPassword(password)
+				.clickLoginButton();
+		Assert.assertEquals(cutName($(HomePage.class).getUserName()), message);
+		//cutName не понимает
+	}
 
-    @DataSource(fileName = Data.MAIN, workSheetName = "Users")
-    @Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
-    public void loginWithInvalidUser(final String email, final String password, final String message){
-        loadSiteUrl(URL.QA)
-                .setUserName(email)
-                .setPassword(password)
-                .clickLoginButton();
-        Assert.assertEquals($(LoginPage.class).getErrorMessage(), message);
+	@DataSource(fileName = Data.MAIN, workSheetName = "Users")
+	@Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
+	public void loginWithInvalidUser(final String email, final String password, final String message) {
+		loadSiteUrl(URL.QA)
+				.setUserName(email)
+				.setPassword(password)
+				.clickLoginButton();
+		Assert.assertEquals($(LoginPage.class).getErrorMessage(), message);
 
-    }
+	}
 
 
-    @DataSource(fileName = Data.MAIN, workSheetName = "Users")
-    @Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
-    public void loginWithInvalidPassword(final String email, final String password, final String message) {
-        loadSiteUrl(URL.QA)
-                .setUserName(email)
-                .setPassword(password)
-                .clickLoginButton();
-        Assert.assertEquals($(LoginPage.class).getErrorMessage(), message);
+	@DataSource(fileName = Data.MAIN, workSheetName = "Users")
+	@Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
+	public void loginWithInvalidPassword(final String email, final String password, final String message) {
+		loadSiteUrl(URL.QA)
+				.setUserName(email)
+				.setPassword(password)
+				.clickLoginButton();
+		Assert.assertEquals($(LoginPage.class).getErrorMessage(), message);
 
-    }
+	}
 
- //note
+	//note
 
 
   /*  @DataSource(fileName = Data.MAIN, workSheetName = "Users")
-    @Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
+	@Test(dataProviderClass = DataProviderUtils.class, dataProvider = GENERIC_DP)
     public void loginWithAValidUser(final String email, final String password, final String userName) {
         System.out.println(email + ":" + password + " -> " + userName);
         System.out.println(randomAlphanumeric(100));
@@ -70,9 +74,6 @@ public class LoginPageTest extends BaseTest {
         System.out.println(email + ":" + password + " -> " + userName);
         System.out.println(randomAscii(200));
     }*/
-
-
-
 
 
 //test

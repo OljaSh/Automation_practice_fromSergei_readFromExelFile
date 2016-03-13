@@ -8,11 +8,11 @@ import forall.core.BasePage;
  */
 public class ErrorLoginPage extends BasePage {
 
-    private By errorMessageText = By.id("errorMsg");
+	private By errorMessageText = By.id("errorMsg");
 
-    public String getErrorMessage() {
-        return getText(errorMessageText);
-    }
+	public String getErrorMessage() {
+		return getText(errorMessageText);
+	}
 }
 
 

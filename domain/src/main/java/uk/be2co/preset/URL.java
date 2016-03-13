@@ -10,16 +10,16 @@ import static forall.utils.PropertiesUtils.getStringValue;
  * Author: Serhii Korol.
  */
 public enum URL {
-    DEV(getStringValue(PropertiesUtils.Constants.DEV_URL)),
-    QA(getStringValue(PropertiesUtils.Constants.QA_URL));
+	DEV(getStringValue(PropertiesUtils.Constants.DEV_URL)),
+	QA(getStringValue(PropertiesUtils.Constants.QA_URL));
 
-    private String address;
+	private String address;
 
-    URL(final String address) {
-        this.address = address;
-    }
+	URL(final String address) {
+		this.address = address;
+	}
 
-    public String toString() {
-        return Optional.ofNullable(System.getenv("URL")).orElse(address);
-    }
+	public String toString() {
+		return Optional.ofNullable(System.getenv("URL")).orElse(address);
+	}
 }
