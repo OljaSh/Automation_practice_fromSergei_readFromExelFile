@@ -43,7 +43,7 @@
                     </properties>
                     <reportsDirectory>${project.basedir}/../reports</reportsDirectory>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/suites/suite.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suites/ParentSuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

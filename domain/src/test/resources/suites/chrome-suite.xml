@@ -4,7 +4,11 @@
 
     <test name="Auth tests">
         <classes>
-            <class name="uk.be2co.testcases.LoginPageTest"/>
+            <class name="uk.be2co.testcases.LoginPageTest">
+                <methods>
+                    <include name="printParams"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

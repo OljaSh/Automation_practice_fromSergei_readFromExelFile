@@ -29,7 +29,7 @@ public class BaseTest {
 		WebDriver driver;
 		switch (xmlUtils.getParameter("browser")) { // read browser value from testng xml
 			case "chrome":
-				System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+				System.setProperty("webdriver.chrome.driver", "/Users/oljashabanova/_dev/_AutomationPractice/browser_driver/chromedriver");
 				driver = new ChromeDriver();
 				break;
 			default:
