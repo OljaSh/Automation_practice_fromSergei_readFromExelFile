@@ -8,11 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import uk.be2co.pageobject.HomePage;
 import uk.be2co.pageobject.LoginPage;
+import uk.be2co.preset.BROWSER;
 import uk.be2co.preset.URL;
 
 import static forall.utils.DataProviderUtils.GENERIC_DP;
 import static uk.be2co.preset.PageObjectSupplier.$;
 import static uk.be2co.preset.PageObjectSupplier.loadSiteUrl;
+import static uk.be2co.preset.PageObjectSupplier.loadSiteBrowser;
 
 public class LoginPageTest extends BaseTest {
 
@@ -26,6 +28,7 @@ public class LoginPageTest extends BaseTest {
 		//System.out.println(email + ":" + password + " -> " + userName); // print var names
 		//System.out.println(randomAlphanumeric(100)); // random from apache utils
 		loadSiteUrl(URL.QA)
+		loadSiteBrowser(BROWSER.FIREFOX)
 				.setUserName(email)
 				.setPassword(password)
 				.clickLoginButton();

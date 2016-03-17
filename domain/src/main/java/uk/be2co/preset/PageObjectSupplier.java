@@ -18,6 +18,10 @@ public final class PageObjectSupplier {
 		return $(LoginPage.class);
 	}
 
+	public static LoginPage loadSiteBrowser(final BROWSER browser){
+		getDriver().get(browser.toString());
+		return $(LoginPage.class);
+	}
 	private PageObjectSupplier() {
 	}
 }
